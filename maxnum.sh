@@ -6,10 +6,12 @@ Copy code
 csv_file="cesta/k/vasemu/souboru.csv"
 
 # Určete sloupec, ve kterém se nachází platová data
-plat_column="2"
+plat_column="2" #treab 3 slopec
 
 # Přečtení hodnot z CSV souboru a nalezení maximální hodnoty
 max_plat=$(tail -n +2 "$csv_file" | cut -d ',' -f "$plat_column" | tr -d ' ' | sort -n | tail -n 1)
+
+# -n +3 
 
 # Výpis maximálního platu
 echo "Maximální plat: $max_plat"
