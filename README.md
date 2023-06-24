@@ -1,3 +1,4 @@
-# ZkouskaOS
+# OS
 
-> pouze pro studijní použítí
+
+>> scripty batch|bash
