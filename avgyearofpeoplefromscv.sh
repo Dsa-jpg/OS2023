@@ -34,3 +34,56 @@ for /F "tokens=3 delims=;" %%a in (%inputFile%) do (
 echo Maximální plat: !maxSalary!
 
 pause
+
+
+-----------------------
+
+@echo off
+setlocal enabledelayedexpansion
+
+set "inputFile=procovnici.csv"
+set /A sum=0
+set /A count=0
+
+for /F "tokens=3 delims=;" %%a in (%inputFile%) do (
+  set /A sum+=%%a
+  set /A count+=1
+)
+
+if %count% gtr 0 (
+  set /A average=sum/count
+  echo Průměrný plat: !average!
+) else (
+  echo Nebyly nalezeny žádné hodnoty platu.
+)
+
+pause
+
+
+-----------------------
+
+
+
+
+@echo off
+setlocal enabledelayedexpansion
+
+set "inputFile=procovnici.csv"
+set /A minSalary=9999999
+
+for /F "tokens=3 delims=;" %%a in (%inputFile%) do (
+  if %%a lss !minSalary! (
+    set /A minSalary=%%a
+  )
+)
+
+echo Minimální plat: !minSalary!
+
+pause
+
+
+
+
+
+
+
