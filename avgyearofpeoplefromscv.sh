@@ -16,3 +16,21 @@ prumer=$(echo "$vek" | awk '{sum += $1} END {print sum / NR}')
 # NR interní proměnné co uchovává počet řádků v awk
 
 echo "Průměr věků pracovníků: $prumer"
+
+
+
+@echo off
+setlocal enabledelayedexpansion
+
+set "inputFile=procovnici.csv"
+set /A maxSalary=0
+
+for /F "tokens=3 delims=;" %%a in (%inputFile%) do (
+  if %%a gtr !maxSalary! (
+    set /A maxSalary=%%a
+  )
+)
+
+echo Maximální plat: !maxSalary!
+
+pause
